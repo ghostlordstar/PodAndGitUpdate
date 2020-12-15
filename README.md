@@ -1,0 +1,2 @@
+# PodAndGitUpdate
+自动更新当前目录及子目录下所有的pod仓库和git仓库
