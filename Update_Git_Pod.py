@@ -123,10 +123,10 @@ if __name__ == '__main__':
         canUpdatePod = True
         canUpdateGit = False
 
-    if canUpdatePod == True: 
-        updateAllPod(podfilePaths, isPodUpdate)
-
     if canUpdateGit == True:
         pullAllGitRepo(gitRepoPaths)
+
+    if canUpdatePod == True: 
+        updateAllPod(podfilePaths, isPodUpdate)
 
     print("✅ 处理完成，请查看 ✅")
