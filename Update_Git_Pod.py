@@ -56,23 +56,24 @@ def listFile(filePath):
 
 def pullAllGitRepo(paths):
     for path in paths:
-        print("--->>> 准备更新仓库：%s" % path)
+        print("--->>> 准备更新【Git】仓库：%s" % path)
         os.chdir(path)
         if isGitDirty(path) == True:
-            print("--->>> ❌ 工作区不干净，请手动更新[%s] ❌" % path)
+            print("--->>> ❌ 【Git】工作区不干净，请手动更新[%s] ❌" % path)
         else:
             os.system("git pull")
-
+    print("---->>>> ✅【Git】仓库更新完成 ✅ <<<<----\n\n")
 
 def updateAllPod(paths, isUpdated):
     for path in paths:
         os.chdir(path)
-        print("--->>> 准备更新Pod库：%s\n"%path)
+        print("--->>> 准备更新【Pod】库：%s\n"%path)
         if isUpdated == False:
             os.system("pod update")
             isUpdated = True
         else:
             os.system("pod install")
+    print("---->>>> ✅【Pod】库更新完成 ✅ <<<<----\n\n")
 
 
 if __name__ == '__main__':
@@ -110,8 +111,8 @@ if __name__ == '__main__':
 
     # 遍历目录
     listFile(rootPath)
-    print("git repo paths: %s"%gitRepoPaths)
-    print("-----------\n podfilePaths: %s"%podfilePaths)
+    # print("git repo paths: %s"%gitRepoPaths)
+    # print("-----------\n podfilePaths: %s"%podfilePaths)
 
     # 判断是否只需要更新git仓库
     if ('-g' in sys.argv or '--git' in sys.argv):
@@ -129,4 +130,4 @@ if __name__ == '__main__':
     if canUpdatePod == True: 
         updateAllPod(podfilePaths, isPodUpdate)
 
-    print("✅ 处理完成，请查看 ✅")
+    print("✅ 全部处理完成，请查看 ✅")
