@@ -56,7 +56,7 @@ def listFile(filePath):
 
 def pullAllGitRepo(paths):
     for path in paths:
-        print("--->>> 准备更新【Git】仓库：%s" % path)
+        print("--->>> 👉️👉️ 准备更新【Git】仓库：%s" % path)
         os.chdir(path)
         if isGitDirty(path) == True:
             print("--->>> ❌ 【Git】工作区不干净，请手动更新[%s] ❌" % path)
@@ -67,7 +67,7 @@ def pullAllGitRepo(paths):
 def updateAllPod(paths, isUpdated):
     for path in paths:
         os.chdir(path)
-        print("--->>> 准备更新【Pod】库：%s\n"%path)
+        print("--->>> 👉️👉️ 准备更新【Pod】库：%s\n"%path)
         if isUpdated == False:
             os.system("pod update")
             isUpdated = True
