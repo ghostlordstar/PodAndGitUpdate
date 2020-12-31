@@ -64,15 +64,11 @@ def pullAllGitRepo(paths):
             os.system("git pull")
     print("---->>>> ✅【Git】仓库更新完成 ✅ <<<<----\n\n")
 
-def updateAllPod(paths, isUpdated):
+def updateAllPod(paths):
     for path in paths:
         os.chdir(path)
         print("--->>> 👉️👉️ 准备更新【Pod】库：%s\n"%path)
-        if isUpdated == False:
-            os.system("pod update")
-            isUpdated = True
-        else:
-            os.system("pod install")
+        os.system("pod update")
     print("---->>>> ✅【Pod】库更新完成 ✅ <<<<----\n\n")
 
 
@@ -91,7 +87,6 @@ if __name__ == '__main__':
     # 初始化变量
     podfilePaths = []
     gitRepoPaths = []
-    isPodUpdate = False
     canUpdateGit = True
     canUpdatePod = True
         
@@ -128,6 +123,6 @@ if __name__ == '__main__':
         pullAllGitRepo(gitRepoPaths)
 
     if canUpdatePod == True: 
-        updateAllPod(podfilePaths, isPodUpdate)
+        updateAllPod(podfilePaths)
 
     print("✅ 全部处理完成，请查看 ✅")
